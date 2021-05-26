@@ -6,6 +6,14 @@
         xmlns:local="clr-namespace:OnlineStore.View"
         mc:Ignorable="d"
         Title="Basket" Height="520" Width="750" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="TextBlock" x:Key="Text">
+            <Setter Property="FontFamily" Value="Franklin Gothic"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+        </Style>
+    </Window.Resources>
     <Grid Background="#FCB4D5">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
@@ -23,12 +31,22 @@
             </Button>
         </Grid>
         <Grid Grid.Row="2" Grid.RowSpan="2" Background="#FC6C85">
-         
+            <StackPanel Grid.Row="1" Grid.Column="1" Background="#FC6C85" TextElement.FontFamily="MS Gothic" TextElement.FontSize="18" TextElement.Foreground="Gray">
+                <TextBlock HorizontalAlignment="Center" FontSize="20" Text="Cортировка" Style="{DynamicResource Text}"/>
+                <TextBlock FontSize="18" Text="Категория" Style="{DynamicResource Text}"/>
+                <ComboBox Name="ComboBoxCategoryFilter" FontSize="15" Foreground="#FC6C85" FontFamily="Franklin Gothic" Width="140" Height="25" Background="White">
+                    <ComboBoxItem Content="Название"/>
+                    <ComboBoxItem Content="Цена"/>
+                    <ComboBoxItem Content="Количество"/>
+                </ComboBox>
+                <Button  x:Name="ButtonSetFilters" Background="#FC6C85" Margin="0,5,0,5" BorderBrush="{x:Null}" Width="140" VerticalAlignment="Top" Height="30" FontSize="16" HorizontalAlignment="Center" FontFamily="Franklin Gothic" Click="ButtonSetFilters_Click" Content="СОРТИРОВАТЬ"/>
+                <Button  x:Name="ButtonResetFilters" Background="#FC6C85" BorderBrush="{x:Null}" Width="140" VerticalAlignment="Top" Height="30" FontSize="16" HorizontalAlignment="Center" FontFamily="Franklin Gothic" Click="ButtonResetFilters_Click" Content="СБРОС"/>
+            </StackPanel>
         </Grid>
         <StackPanel Grid.Column="1" Grid.ColumnSpan="4">
             <TextBlock Text="КОРЗИНА ПОКУПОК" Width="600" Height="60" Foreground="White" Padding="6" TextAlignment="Center" FontFamily="Franklin Gothic Bold" FontSize="40" Background="#FC6C85"/>
         </StackPanel>
-        <ListBox Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" ItemsSource="{Binding Purchases}"
+        <ListBox x:Name="BasketList" Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" ItemsSource="{Binding Purchases}"
                  SelectedItem="{Binding SelectedPurchase}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
