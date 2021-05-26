@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using OnlineStore.Model.Data;
+using OnlineStore.ViewModel;
 
 namespace OnlineStore.View
 {
@@ -19,10 +21,24 @@ namespace OnlineStore.View
     /// Логика взаимодействия для StoreList.xaml
     /// </summary>
     public partial class StoreList : Window
-    {
+    {     
         public StoreList()
-        {
+        {          
             InitializeComponent();
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Login loginWindow = new Login();
+            loginWindow.Show();
+            Hide();
+        }
+
+        private void GoToCart_Click(object sender, RoutedEventArgs e)
+        {
+            Cart cartWindow = new Cart();
+            cartWindow.Show();
+            Hide();
         }
     }
 }

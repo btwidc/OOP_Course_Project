@@ -1,0 +1,84 @@
+﻿<Window x:Class="OnlineStore.View.AddProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OnlineStore.View"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="AddProduct" Height="710" Width="650" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="Label" x:Key="Labels">
+            <Setter Property="FontFamily" Value="Franklin Gothic"></Setter>
+            <Setter Property="Foreground" Value="#982551"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Margin" Value="25"></Setter>
+        </Style>
+        <Style TargetType="TextBox" x:Key="TextBoxes">
+            <Setter Property="BorderBrush" Value="#982551"></Setter>
+            <Setter Property="BorderThickness" Value="2"></Setter>
+            <Setter Property="Background" Value="White"></Setter>
+            <Setter Property="FontFamily" Value="Franklin Gothic"></Setter>
+            <Setter Property="Foreground" Value="#982551"></Setter>
+            <Setter Property="FontSize" Value="18"></Setter>
+            <Setter Property="Height" Value="25"></Setter>
+            <Setter Property="Width" Value="200"></Setter>
+            <Setter Property="Margin" Value="0,0,20,0"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="ДОБАВЛЕНИЕ НОВОГО ПРОДУКТА"  Foreground="White" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" FontFamily="Franklin Gothic" FontSize="28" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#982551"/>
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="6" Background="#80304c" >
+            <Button Height="50" Background="#80304c" BorderBrush="{x:Null}" Click="Admin_Window_Click">
+                <materialDesign:PackIcon VerticalAlignment="Center" HorizontalAlignment="Center" Width="30" Height="30" Kind="Account"/>
+            </Button>
+        </StackPanel>
+        <StackPanel Margin="0,0,0,0" Grid.Column="0" Grid.Row="5">
+            <Button Width="50" Height="50" Background="#80304c" BorderBrush="{x:Null}" Click="Exit_Click">
+                <materialDesign:PackIcon VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Height="20" Kind="Power"/>
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="5" Grid.ColumnSpan="2" Background="White">
+            <Rectangle Height="700">
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Color="#FADFAD" Offset="0.9"/>
+                        <GradientStop Color="#FFDAB9" Offset="0.6"/>
+                        <GradientStop Color="#FFCFAB" Offset="0.3"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </StackPanel>
+        <Label Grid.Row="1" Grid.Column="1" Content="НАЗВАНИЕ ПРОДУКТА:" Style="{DynamicResource Labels}"/>
+        <Label Grid.Row="2" Grid.Column="1" Content="ЦЕНА ПРОДУКТА:" Style="{DynamicResource Labels}"/>
+        <Label Grid.Row="3" Grid.Column="1" Content="КОЛИЧЕСТВО ПРОДУКТА:" Style="{DynamicResource Labels}" />
+        <Label Grid.Row="4" Grid.Column="1" Content="ИЗОБРАЖЕНИЕ ПРОДУКТА:" Style="{DynamicResource Labels}" />
+        <StackPanel Grid.Column="2" Margin="0,-50,20,0" Width="200" Height="200" Grid.Row="4" Grid.ColumnSpan="2">
+            <Image x:Name="ItemPicture" Source="Icons/product.png" />
+            <Image x:Name="MainItemPicture" Margin="200" Source="Icons/product.png" />
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="2">
+            <Button Background="#982551" Margin="0,240,20,0" Width="220" FontSize="18" FontFamily="Franklin Gothic" Click="Add_Picture_Click" Content="Добавить изображение"/>
+        </StackPanel>
+        <TextBox x:Name="Name_TextBox" Grid.Row="1" Grid.Column="2" Style="{DynamicResource TextBoxes}"/>
+        <TextBox x:Name="Price_TextBox" Grid.Row="2" Grid.Column="2" Style="{DynamicResource TextBoxes}"/>
+        <TextBox x:Name="Quantity_TextBox" Grid.Row="3" Grid.Column="2" Style="{DynamicResource TextBoxes}"/>
+        <StackPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
+            <Button Background="#982551" Margin="5" Width="250" Height="35" FontSize="18" FontFamily="Franklin Gothic" Click="Add_Product_Click" Content="ДОБАВИТЬ ПРОДУКТ"/>
+        </StackPanel>
+    </Grid>
+</Window>

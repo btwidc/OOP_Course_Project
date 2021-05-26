@@ -31,23 +31,6 @@ namespace OnlineStore.View
             string username = Username_TextBox.Text;
             string password = Password_TextBox.Password;
 
-            if (username.Length < 4)
-            {
-                Username_TextBox.ToolTip = "Username should contain at least 4 characters";
-                Username_TextBox.Background = Brushes.LightPink;
-            }
-            else if (password.Length < 4)
-            {
-                Password_TextBox.ToolTip = "Password should contain at least 4 characters";
-                Password_TextBox.Background = Brushes.LightPink;
-            }
-            else
-            {
-                Username_TextBox.ToolTip = "";
-                Username_TextBox.Background = Brushes.White;
-                Password_TextBox.ToolTip = "";
-                Password_TextBox.Background = Brushes.White;
-
                 User authUser;
                 using (UserContext db = new UserContext())
                 {
@@ -56,14 +39,15 @@ namespace OnlineStore.View
 
                 if (authUser != null && authUser.Username != "admin")
                 {
-                    ShoppingCart shoppingCartWindow = new ShoppingCart();
-                    shoppingCartWindow.Show();
+                    StoreList storeListWindow = new StoreList();
+                    storeListWindow.Show();
                     Hide();
                 }
                 else if (authUser == null)
                 {
-                    Username_TextBox.ToolTip = "There is no such user";
+                    Username_TextBox.ToolTip = "Неверное имя пользователя или пароль";
                     Username_TextBox.Background = Brushes.LightPink;
+                    Password_TextBox.Background = Brushes.LightPink;
                 }
                 else if (authUser != null && authUser.Username == "admin")
                 {
@@ -71,9 +55,6 @@ namespace OnlineStore.View
                     adminWindow.Show();
                     Hide();
                 }
-
-            }
-
         }
 
         private void Go_To_Registration_Click(object sender, RoutedEventArgs e)

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Курсач\OnlineStore\OnlineStore\obj\Debug\
+D:\Курсач\OOP_Course_Project\OnlineStore\OnlineStore\obj\Debug\
 OnlineStore
 none
 false
 DEBUG;TRACE
-D:\Курсач\OnlineStore\OnlineStore\App.xaml
-51526499968
+D:\Курсач\OOP_Course_Project\OnlineStore\OnlineStore\App.xaml
+8698359374
 
-131848853021
-18-1205493
-View\AdminWindow.xaml;View\MainWindow.xaml;View\Login.xaml;View\ShoppingCart.xaml;View\StoreList.xaml;
+25-555527798
+181759749550
+View\AddProduct.xaml;View\AdminWindow.xaml;View\Basket.xaml;View\Cart.xaml;View\MainWindow.xaml;View\Login.xaml;View\Orders.xaml;View\StoreList.xaml;
 
 False
 

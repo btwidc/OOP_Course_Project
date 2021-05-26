@@ -1,0 +1,57 @@
+﻿<Window x:Class="OnlineStore.View.Orders"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OnlineStore.View"
+        xmlns:local2="clr-namespace:OnlineStore.ViewModel"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Orders" Height="600" Width="700" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="TextBlock" x:Key="Text">
+            <Setter Property="FontFamily" Value="Franklin Gothic"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition Width="80"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="1" Grid.RowSpan="5" Background="#80304c">
+            <Button Height="60"  Background="#80304c" BorderBrush="{x:Null}" Click="Admin_Window_Click">
+                <materialDesign:PackIcon VerticalAlignment="Center" HorizontalAlignment="Center" Width="40" Height="40" Kind="Account"/>
+            </Button>
+        </StackPanel>
+        <StackPanel Margin="0,0,0,0" Grid.Column="0" Grid.Row="5">
+            <Button Height="60" Background="#80304c" BorderBrush="{x:Null}" Click="Exit_Click">
+                <materialDesign:PackIcon VerticalAlignment="Center" HorizontalAlignment="Center" Width="30" Height="30" Kind="Power"/>
+            </Button>
+        </StackPanel>
+        <Label Content="ЗАКАЗЫ"  Foreground="White" Grid.ColumnSpan="7" Grid.Column="0" FontFamily="Franklin Gothic Bold" FontSize="40" Padding="270,0,0,0" VerticalContentAlignment="Center" Background="#982551"/>
+        <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" Grid.RowSpan="2" Background="#FADFAD">
+        </Grid>
+        <ListView ItemsSource="{Binding Orders}" SelectedItem="{Binding SelectedOrder}" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="5" Background="#FADFAD" TextElement.FontFamily="Franklin Gothic" TextElement.FontSize="20" TextElement.Foreground="#80304c">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn x:Name="Id" Header="ID" Width="90" DisplayMemberBinding="{Binding Path=Id}"/>
+                    <GridViewColumn x:Name="Id_user" Header="ID покупателя" Width="195" DisplayMemberBinding="{Binding Path=Id_user}"/>
+                    <GridViewColumn x:Name="Id_product" Header="ID продукта" Width="175" DisplayMemberBinding="{Binding Path=Id_product}" />
+                    <GridViewColumn x:Name="Quantity" Header="Количество" Width="180" DisplayMemberBinding="{Binding Path=Quantity}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

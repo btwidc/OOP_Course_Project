@@ -71,23 +71,53 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Data\OrderContext.cs" />
+    <Compile Include="Model\Order.cs" />
     <Compile Include="Model\Data\ProductContext.cs" />
+    <Compile Include="Model\Data\PurchaseContext.cs" />
     <Compile Include="Model\Data\UserContext.cs" />
     <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\Purchase.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="ViewModel\AddToCartVM.cs" />
+    <Compile Include="ViewModel\AdminWindowVM.cs" />
+    <Compile Include="ViewModel\BasketVM.cs" />
+    <Compile Include="ViewModel\MyCommand.cs" />
+    <Compile Include="ViewModel\OrderVM.cs" />
+    <Compile Include="View\AddProduct.xaml.cs">
+      <DependentUpon>AddProduct.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Basket.xaml.cs">
+      <DependentUpon>Basket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Cart.xaml.cs">
+      <DependentUpon>Cart.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ShoppingCart.xaml.cs">
-      <DependentUpon>ShoppingCart.xaml</DependentUpon>
+    <Compile Include="View\Orders.xaml.cs">
+      <DependentUpon>Orders.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\StoreList.xaml.cs">
       <DependentUpon>StoreList.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\AddProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AdminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Basket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Cart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -107,7 +137,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ShoppingCart.xaml">
+    <Page Include="View\Orders.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -144,10 +174,25 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Icons\home.png" />
+    <Resource Include="View\Icons\gum.jpg" />
+    <Resource Include="View\Icons\kit-kat.jpg" />
+    <Resource Include="View\Icons\lion.jpg" />
+    <Resource Include="View\Icons\marshmallow.jpg" />
+    <Resource Include="View\Icons\milka.jpg" />
+    <Resource Include="View\Icons\milkyway.jpg" />
+    <Resource Include="View\Icons\oreo.jpg" />
+    <Resource Include="View\Icons\skittles.jpg" />
+    <Resource Include="View\Icons\twix.jpg" />
+    <Resource Include="View\Icons\unicorn.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModel\" />
+    <Resource Include="View\Icons\product.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Icons\home_icon.PNG" />
+    <Resource Include="View\Icons\store_icon_circle.PNG" />
+    <Resource Include="View\Icons\store_icon.JPG" />
+    <Resource Include="View\Icons\delete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />

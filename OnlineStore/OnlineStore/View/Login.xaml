@@ -17,20 +17,20 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Image Source="Icons/home.png" Width="80" Height="80" VerticalAlignment="Top" Margin="20"/>
-        <Rectangle Width="280" Height="240" Fill="White" VerticalAlignment="Bottom" Margin="0,90" RadiusX="15" RadiusY="15">
+        <Image Source="Icons/home_icon.png" Width="90" Height="90" VerticalAlignment="Top" Margin="20"/>
+        <Rectangle Width="280" Height="240" Fill="White" VerticalAlignment="Bottom" Margin="0,100" RadiusX="15" RadiusY="15">
             <Rectangle.Effect>
                 <DropShadowEffect Color="#FF43A4" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
             </Rectangle.Effect>
         </Rectangle>
         <Grid Width="280" Height="240" VerticalAlignment="Bottom" Margin="0,90">
-            <TextBlock Text="AUTHORIZATION" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Foreground="Gray" FontSize="20"/>
+            <TextBlock Text="АВТОРИЗАЦИЯ" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" FontFamily="Franklin Gothic" Foreground="Gray" FontSize="20"/>
             <StackPanel VerticalAlignment="Center" Margin="10">
-                <TextBox x:Name="Username_TextBox" materialDesign:HintAssist.Hint="USERNAME" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,10" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
-                <PasswordBox x:Name="Password_TextBox" materialDesign:HintAssist.Hint="PASSWORD" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,10"  FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+                <TextBox x:Name="Username_TextBox" materialDesign:HintAssist.Hint="ИМЯ ПОЛЬЗОВАТЕЛЯ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,10" FontFamily="Champagne &amp; Limousines" FontSize="16"/>
+                <PasswordBox x:Name="Password_TextBox" materialDesign:HintAssist.Hint="ПАРОЛЬ" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,10"  FontFamily="Champagne &amp; Limousines" FontSize="16"/>
             </StackPanel>
         </Grid>
-        <Button Background="#FC6C85" VerticalAlignment="Bottom" Margin="0,110" Width="150" Content="LOG IN" Click="Login_Click"/>
-        <Button Background="#FC6C85" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,25" Width="200" Click="Go_To_Registration_Click" Content="Go to registration"/>
+        <Button Background="#FC6C85" VerticalAlignment="Bottom" Margin="0,110" Width="150" FontFamily="Franklin Gothic" Content="ВОЙТИ" Click="Login_Click"/>
+        <Button Background="#FC6C85" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Franklin Gothic" Margin="0,25" Width="200" Click="Go_To_Registration_Click" Content="Перейти к регистрации"/>
     </Grid>
 </Window>

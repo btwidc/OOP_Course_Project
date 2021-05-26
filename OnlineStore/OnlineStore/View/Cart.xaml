@@ -1,0 +1,54 @@
+﻿<Window x:Class="OnlineStore.View.Cart"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OnlineStore.View" xmlns:local2="clr-namespace:OnlineStore.ViewModel" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Cart" Height="520" Width="750" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Background="#FCB4D5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.RowSpan="2" Background="#FC6C85">
+            <Button Width="150" Height="120" Background="#FC6C85" BorderBrush="{x:Null}" Click="GoToStore_Click">
+                <Image Source="Icons/store_icon_circle.png" />
+            </Button>
+        </Grid>
+        <Grid Grid.Row="2" Grid.RowSpan="2" Background="#FC6C85">
+            <Button BorderBrush="{x:Null}" Width="150" Height="400" VerticalAlignment="Top" Background="#FC6C85" Click="GoToBasket_Click">
+                    <materialDesign:PackIcon Width="100" Height="100" Kind="Basket" Foreground="White" VerticalAlignment="Center"/>
+                </Button>
+            </Grid>
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="4">
+            <TextBlock Text="ПОКУПКА" Width="600" Height="60" Foreground="White" Padding="6" TextAlignment="Center" FontFamily="Franklin Gothic Bold" FontSize="40" Background="#FC6C85"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="3">
+            <Button Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Background="#FC6C85" FontFamily="Franklin Gothic" FontSize="28" BorderBrush="{x:Null}" Content="КУПИТЬ" Margin="0,10,0,0"  Command="{Binding BuyCommand}" CommandParameter="{Binding ElementName=ItemsList, Path=SelectedItem}"/>
+        </StackPanel>
+        <ListBox x:Name="ItemsList" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" ItemsSource="{Binding Items}"
+                 SelectedItem="{Binding SelectedProduct}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <TextBlock FontSize="22" Foreground="#982551" Text="{Binding Path=Name}" />
+                        <TextBlock FontSize="20" Foreground="#982551" Text="{Binding Path=Price, StringFormat={}{0:C}}" />
+                        <TextBlock FontSize="18" Foreground="#982551" Text="{Binding Path=Quantity}" />
+                        <StackPanel Margin="120,-80,0,0">
+                            <Border Width="100" Height="100" CornerRadius="5" Margin="2" BorderBrush="#982551" BorderThickness="3">
+                            <Image  x:Name="ProductImage" Width="100" Height="100"  Margin="0,0,0,0" Source="{Binding Path=Source}"/>
+                        </Border>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>

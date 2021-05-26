@@ -4,9 +4,68 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OnlineStore.View"
+        xmlns:local2="clr-namespace:OnlineStore.ViewModel"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="450" Width="800">
+        Title="AdminWindow" Height="600" Width="1020" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="TextBlock" x:Key="Text">
+            <Setter Property="FontFamily" Value="Franklin Gothic"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="540"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="1" Grid.RowSpan="5" Background="#80304c">
+            <Button Background="#80304c" BorderBrush="{x:Null}" Width="220" VerticalAlignment="Top" Height="60" FontSize="20" HorizontalAlignment="Center" FontFamily="Franklin Gothic" Click="Go_To_Add_Product_Click" Content="ДОБАВИТЬ ПРОДУКТ"/>
+            <Button Background="#80304c" BorderBrush="{x:Null}" Width="220" VerticalAlignment="Top" Height="60" FontSize="20" HorizontalAlignment="Center" FontFamily="Franklin Gothic" Click="GoToOrders_Click" Content="ЗАКАЗЫ"/>
+            <Button Background="#80304c" BorderBrush="{x:Null}" Width="220" VerticalAlignment="Top" Height="60" FontSize="20" HorizontalAlignment="Center" FontFamily="Franklin Gothic" Click="Exit_Click" Content="ВЫХОД"/>
+        </StackPanel>
+        <Label Content="ПРОДУКТЫ"  Foreground="White" Grid.ColumnSpan="7" Grid.Column="0" FontFamily="Franklin Gothic Bold" FontSize="40" Padding="370,0,0,0" VerticalContentAlignment="Center" Background="#982551"/>
+        <StackPanel Grid.Row="1" Grid.Column="1" Background="#80304c" TextElement.FontFamily="MS Gothic" TextElement.FontSize="18" TextElement.Foreground="Gray">
+            <TextBlock HorizontalAlignment="Center" FontSize="20" Text="Cортировка" Style="{DynamicResource Text}"/>
+            <TextBlock FontSize="18" Text="Категория" Style="{DynamicResource Text}"/>
+            <ComboBox Name="ComboBoxCategoryFilter" FontSize="15" Foreground="#80304c" FontFamily="Franklin Gothic" Width="140" Height="25" Background="White">
+                <ComboBoxItem Content="Название"/>
+                <ComboBoxItem Content="Цена"/>
+                <ComboBoxItem Content="Количество"/>
+            </ComboBox>
+            <Button  x:Name="ButtonSetFilters" Background="#80304c" Margin="0,5,0,5" BorderBrush="{x:Null}" Width="140" VerticalAlignment="Top" Height="30" FontSize="16" HorizontalAlignment="Center" FontFamily="Franklin Gothic" Click="ButtonSetFilters_Click" Content="СОРТИРОВАТЬ"/>
+            <Button  x:Name="ButtonResetFilters" Background="#80304c" BorderBrush="{x:Null}" Width="140" VerticalAlignment="Top" Height="30" FontSize="16" HorizontalAlignment="Center" FontFamily="Franklin Gothic" Click="ButtonResetFilters_Click" Content="СБРОС"/>
+            <TextBlock Margin="5,5,0,10" FontSize="18" Text="Цена" Style="{DynamicResource Text}"/>
+            <TextBlock Style="{DynamicResource Text}" Margin="8,0,0,-1" Width="20" FontSize="15" Text="От"></TextBlock>
+            <TextBox   x:Name="TextBoxMinPrice" Foreground="#80304c" FontSize="13" Margin="0,-20,50,0" Background="White" Width="40" Height="20"></TextBox>
+            <TextBlock Style="{DynamicResource Text}" Margin="80,-15,0,-1" Width="20" FontSize="15" Text="До"></TextBlock>
+            <TextBox   x:Name="TextBoxMaxPrice" Width="40" Foreground="#80304c"  FontSize="13" Height="20" Background="White" Margin="95,-20,0,0"></TextBox>
+            <Button  x:Name="ButtonFindFilters" Background="#80304c" Margin="0,5,0,0" BorderBrush="{x:Null}" Width="140" VerticalAlignment="Top" Height="30" FontSize="16" HorizontalAlignment="Center" FontFamily="Franklin Gothic" Click="Button_Find_Click" Content="НАЙТИ"/>
+            <Button  x:Name="ButtonDelete" Background="#80304c" Margin="0,5,0,0" BorderBrush="{x:Null}" Width="140" VerticalAlignment="Top" Height="30" FontSize="16" HorizontalAlignment="Center" FontFamily="Franklin Gothic"  Command="{Binding DeleteCommand}"
+            CommandParameter="{Binding ElementName=ProductsList, Path=SelectedItem}" Content="УДАЛИТЬ"/>
+        </StackPanel>
+        <Grid Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="5" Background="#FADFAD">
+        </Grid>
+        <ListView x:Name="ProductsList" ItemsSource="{Binding Products}" SelectedItem="{Binding SelectedProduct}" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="4" Background="#FADFAD" TextElement.FontFamily="Franklin Gothic" TextElement.FontSize="20" TextElement.Foreground="#80304c">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn x:Name="Id" Header="ID" Width="90" DisplayMemberBinding="{Binding Path=Id}"/>
+                    <GridViewColumn x:Name="Name" Header="Название" Width="150" DisplayMemberBinding="{Binding Path=Name}"/>
+                    <GridViewColumn x:Name="Price" Header="Цена" Width="120" DisplayMemberBinding="{Binding Path=Price}" />
+                    <GridViewColumn x:Name="Quantity" Header="Количество" Width="165" DisplayMemberBinding="{Binding Path=Quantity}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>
