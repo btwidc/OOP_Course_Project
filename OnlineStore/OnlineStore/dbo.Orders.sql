@@ -5,6 +5,6 @@
     [Quantity]   INT NOT NULL,
     CONSTRAINT [PK_dbo.Orders] PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_Orders_Users] FOREIGN KEY ([Id_user]) REFERENCES [dbo].[Users] ([id]),
-	CONSTRAINT [FK_Orders_Products] FOREIGN KEY ([Id_product]) REFERENCES [dbo].[Products] ([Id])
+	CONSTRAINT [FK_Orders_Purchases] FOREIGN KEY ([Id_product]) REFERENCES [dbo].[Purchases] ([Product_id])
 );
 
