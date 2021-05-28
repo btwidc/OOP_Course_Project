@@ -59,7 +59,7 @@ namespace OnlineStore.ViewModel
                                 Order order = new Order
                                 {
                                     Id_product = curPr.Id,
-                                    Id_user = 2,
+                                    Id_user = 3,
                                     Quantity = 1
                                 };
                                 pur.Purchases.Add(purchase);
@@ -81,7 +81,7 @@ namespace OnlineStore.ViewModel
                                 Order order = new Order
                                 {
                                     Id_product = curPr.Id,
-                                    Id_user = 2,
+                                    Id_user = 3,
                                     Quantity = 1
                                 };
                                 pur.Purchases.Add(purchase);
